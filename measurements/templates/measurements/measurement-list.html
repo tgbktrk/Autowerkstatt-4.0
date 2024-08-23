@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "measurements/css/style.css" %}">
+{% endblock %}
+
+{% block page_title %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width: 0px;">Vin Number</th>
+                            <th style="width: 200px;">Date</th>
+                            <th style="width: 250px;">Problems</th>
+                            <th style="width: 250px;">CSV File</th>
+                            <th style="width: 50px;">Operation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for measurement, dtc_codes in measurements_with_dtc %}
+                        <tr>
+                            <td scope="row">{{measurement.car.vin_number}}</td>
+                            <td scope="row">{{measurement.date}}</td>
+                            <td>
+                                {% if dtc_codes %}
+                            <ul>
+                                {% for code, description in dtc_codes %}
+                                <li>{{ code }} - {{ description|truncatechars:25 }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% else %}
+                            <p>No problems reported.</p>
+                            {% endif %}
+                            </td>
+                            <td scope="row">{{measurement.csv_file}}</td>
+                            <td scope="row">
+                                <a href="{% url "measurement_edit" measurement.slug %}" class="btn btn-primary btn-sm">edit</a>
+                                <a href="{% url "measurement_delete" measurement.slug %}" class="btn btn-danger btn-sm">delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>   
+        </div>
+     </div>
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static "measurements/js/script.js" %}"></script>
+{% endblock %}

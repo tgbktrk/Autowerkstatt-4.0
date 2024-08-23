@@ -1,0 +1,6 @@
+Date-Time: 20230613-170158
+Sampling Delay(s): 0.001
+Samples: 500
+VIN: 
+DTC:
+[('P0171', 'System Too Lean')]

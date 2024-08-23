@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "measurements/css/style.css" %}">
+{% endblock %}
+
+{% block page_title %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <form action="{% url "upload" %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        {{form}}
+                        <button class="btn btn-outline-secondary" type="submit">Upload</button>
+                      </div>
+                </form>
+                <table class="table table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th style="width: 120px;"></th>
+                            <th>Date</th>
+                            <th>Slug</th>
+                            <th style="width: 70px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for measurement in measurements %}
+                        <tr>
+                            <td>
+                                <img class="img-fluid" src="{{car.image.url}}">
+                            </td>
+                            <td>{{measurement.date}}</td>
+                            <td>{{measurement.slug}}</td>
+                            <td>
+                                <a href="{% url "measurement_edit" measurement.vin_number %}" class="btn btn-primary btn-sm">edit</a>
+                                <a href="{% url "measurement_delete" measurement.vin_number %}" class="btn btn-danger btn-sm">delete</a>
+                            </td> 
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>   
+        </div>
+     </div>
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static "measurements/js/script.js" %}"></script>
+{% endblock %}

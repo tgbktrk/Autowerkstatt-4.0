@@ -1,0 +1,6 @@
+Date-Time: 20230206-183653
+Sampling Delay(s): 0.001
+Samples: 500
+VIN: WF05XXWPD55B16595
+DTC:
+[('P0037', 'HO2S Heater Control Circuit Low'), ('P0171', 'System Too Lean')]

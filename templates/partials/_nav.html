@@ -1,0 +1,66 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "measurements/css/bootstrap.min.css" %}"/>
+<nav class="navbar navbar-expand-lg bg-black navbar-dark">
+    <div class="container">
+        <a href="{% url "home" %}" class="navbar-brand">
+            <img src="{% static 'measurements/img/logo2.png' %}" alt="Logo" width="150" height="35" class="d-inline-block align-text-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" data-bs-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav me-auto">
+            {% if user.is_superuser %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Measurement
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url "index" %}">Home</a></li>
+                      <li><a class="dropdown-item" href="{% url "create_measurement" %}">Add Measurement</a></li>
+                      <li><a class="dropdown-item" href="{% url "measurement_list" %}">Measurement List</a></li>
+                    </ul>
+                  </li>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav me-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Welcome, {{user.username}}</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Car
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="{% url "create_car" %}">Add Car</a></li>
+                      <li><a class="dropdown-item" href="{% url "car_list" %}">Car List</a></li>
+                    </ul>
+                  </li>
+                <li class="nav-item">
+                    <a href="{% url "change_password" %}" class="nav-link">Change Password</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url "user_logout" %}" class="nav-link">Logout</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a href="{% url "user_login" %}" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url "user_register" %}" class="nav-link">Register</a>
+                </li>
+            {% endif %}
+        </ul>
+        {% if user.is_authenticated %}
+            <form class="d-flex" action="{% url 'search_by_owner' %}">
+                <input class="form-control me-1" type="text" name="q" placeholder="Key Word" value="{{ request.GET.q }}">
+                <button type="submit" class="btn btn-secondary">Search</button>
+            </form>
+        {% endif %}
+    </div>
+</nav>
+<script src="{% static "measurements/js/bootstrap.min.js" %}"></script>
+<script src="{% static 'measurements/js/bootstrap.bundle.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+

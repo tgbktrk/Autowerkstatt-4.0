@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "measurements/css/style.css" %}">
+{% endblock %}
+
+{% block page_title %}
+    Delete Measurement
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    <strong>{{measurement.date}}</strong> do you want to delete the dated measurement?
+                    <form action="{% url "measurement_delete" measurement.slug%}" method="POST" enctype="multipart/form-data"> 
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                        <a href="{% url "measurement_list" %}" class="btn btn-primary">No</a>
+                    </form>
+                </p>
+            </div>   
+        </div>
+     </div>
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static "measurements/js/script.js" %}"></script>
+{% endblock %}

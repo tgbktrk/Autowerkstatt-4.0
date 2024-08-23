@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "measurements/css/style.css" %}}">
+{% endblock %}
+
+{% block page_title %}
+    Delete Car
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    Are you sure you want to delete the car with the vin number <strong>{{car.vin_number}}</strong>?
+                    <form action="{% url "delete_car" car.slug%}" method="POST"> 
+                        {% csrf_token %} 
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                        <a href="{% url "car_list" %}" class="btn btn-primary">No</a>
+                    </form>
+                </p>
+            </div>   
+        </div>
+     </div>
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static "measurements/js/script.css" %}"></script>
+{% endblock %}

@@ -1,0 +1,7 @@
+ <div class="list-group">
+    <a href="/measurements" class="list-group-item list-group-item-action">All Cars</a>
+    {% for car in cars %}
+        <a href="{% url "measurements_by_car" car.slug %}" class="list-group-item list-group-item-action {% if selectedCar == car.slug %}active{% endif %}">
+    {{ car.vin_number }}</a>
+    {% endfor %}
+</div>

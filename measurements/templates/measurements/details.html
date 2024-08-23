@@ -1,0 +1,183 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "measurements/css/style.css" %}">
+{% endblock %}
+
+{% block page_title %}
+    {{ measurement.date }}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Problems</h1>
+<div class="row">
+{% if dtc_codes %}
+    <ul>
+    {% for code, description in dtc_codes %}
+        <li>{{ code }} - {{ description }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No problems reported.</p>
+{% endif %}
+</div>
+    
+    <h1 class="mb-4">CSV Data Graphics</h1>
+    
+    <!-- Rows for Charts -->
+    <div class="row">
+        <!-- Card 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Battery Voltage Over Time</h5>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Graphic Screen Height -->
+                    <div class="embed-responsive embed-responsive-16by9" style="height: 500px;">
+                        <div class="embed-responsive-item">
+                            {{ graph_html1|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">RPM Over Time</h5>
+                </div>
+                <div class="card-body p-0">
+                    <!--Graphic Screen Height -->
+                    <div class="embed-responsive embed-responsive-16by9" style="height: 500px;">
+                        <div class="embed-responsive-item">
+                            {{ graph_html2|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">O2 Voltage Sensor 1</h5>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Graphic Screen Height -->
+                    <div class="embed-responsive embed-responsive-16by9" style="height: 500px;">
+                        <div class="embed-responsive-item">
+                            {{ graph_html3|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Chart -->
+    <div class="row">
+        <!-- Card 4 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">O2 Voltage Sensor 2</h5>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Graphic Screen Height -->
+                    <div class="embed-responsive embed-responsive-16by9" style="height: 500px;">
+                        <div class="embed-responsive-item">
+                            {{ graph_html4|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">MAF Over Time</h5>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Graphic Screen Height -->
+                    <div class="embed-responsive embed-responsive-16by9" style="height: 500px;">
+                        <div class="embed-responsive-item">
+                            {{ graph_html5|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Intake Pressure</h5>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Graphic Screen Height -->
+                    <div class="embed-responsive embed-responsive-16by9" style="height: 500px;">
+                        <div class="embed-responsive-item">
+                            {{ graph_html6|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Chart -->
+    <div class="row">
+        <!-- Card 7 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Intake Temperature</h5>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Graphic Screen Height -->
+                    <div class="embed-responsive embed-responsive-16by9" style="height: 500px;">
+                        <div class="embed-responsive-item">
+                            {{ graph_html7|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Engine Load Analysis</h5>
+                </div>
+                <div class="card-body p-0">
+                    <!-- Graphic Screen Height -->
+                    <div class="embed-responsive embed-responsive-16by9" style="height: 500px;">
+                        <div class="embed-responsive-item">
+                            {{ graph_html8|safe }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static "measurements/js/script.js" %}"></script>
+    <script src="{% static "js/script.js" %}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{% endblock %}

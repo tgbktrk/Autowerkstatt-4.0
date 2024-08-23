@@ -1,0 +1,23 @@
+/* .errorlist {
+     list-style-type: none;
+     color: red;
+     margin: 0;
+     padding: 0;
+}
+
+.invalid input, .invalid textarea{
+     border-color: #dc3545;
+} */
+
+.background-image {
+     background-image: url('/static/measurements/img/background2.png');
+     background-size: cover;
+     background-position: center;
+     height: 100vh;
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color: white;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+ }

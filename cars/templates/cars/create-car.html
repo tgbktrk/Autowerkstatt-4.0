@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "measurements/css/style.css" %}">
+{% endblock %}
+
+{% block page_title %}
+    Create Car
+{% endblock %}
+
+{% block content %}
+<div class="container mt-3">
+        <div class="row">
+            <div class="col-12">
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{msg}}
+                    </div>
+                {% endif %}
+                <form action="{% url "create_car" %}" method="POST" novalidate enctype="multipart/form-data">
+                {% csrf_token %}
+
+                    {% include "partials/_form.html" %}
+
+                    <button class="btn-primary" type="submit">Save</button>
+                </form>
+            </div>   
+        </div>
+     </div>
+{% endblock %}
+
+{% block js_files %}
+    <script src="{% static "measurements/js/script.js" %}"></script>
+{% endblock %}
