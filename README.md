@@ -139,12 +139,12 @@ python manage.py runserver
 
 ```
 
-## 📌 Future Enhancements
+# 📌 Future Enhancements
 # • Multi-language support
 # • Advanced reporting & analytics
 # • Maintenance reminder notifications
 # • Improved mobile responsiveness
 
-## 🧑‍💻 Author
+# 🧑‍💻 Author
 # Tuğba Aktürk
 # Computer Engineering Student | Junior Software Developer
