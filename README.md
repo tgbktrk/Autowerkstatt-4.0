@@ -140,11 +140,11 @@ python manage.py runserver
 ```
 
 # 📌 Future Enhancements
-# • Multi-language support
-# • Advanced reporting & analytics
-# • Maintenance reminder notifications
-# • Improved mobile responsiveness
+### • Multi-language support
+### • Advanced reporting & analytics
+### • Maintenance reminder notifications
+### • Improved mobile responsiveness
 
 # 🧑‍💻 Author
-# Tuğba Aktürk
-# Computer Engineering Student | Junior Software Developer
+### Tuğba Aktürk
+### Computer Engineering Student | Junior Software Developer
