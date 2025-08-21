@@ -1,132 +1,150 @@
 # Autowerkstatt Management System
 
-Autowerkstatt is a comprehensive car service management system designed to streamline the processes of car tracking, measurement recording, user management, and reporting. The project provides an intuitive interface for both administrators and users, offering seamless functionality for managing vehicles, tracking maintenance records, and monitoring historical measurements.
+Autowerkstatt is a comprehensive **car service management system** built with **Python Django**.  
+It streamlines **car tracking**, **measurement recording**, **problem (DTC) management**, **user management**, and **reporting** with an intuitive web interface.
 
 ---
 
 ## 🚀 Features
 
-### **Authentication & Authorization**
-- Secure user registration and login system
-- Password reset and change functionalities
-- Role-based access control for administrators and regular users
+### Authentication & Authorization
+- Secure sign up / sign in / logout
+- Password change
+- Role-based access (admin / user)
+- CSRF protection, session-based auth
 
-### **Car Management**
-- Add, edit, and delete car details
-- View a complete list of registered vehicles
-- Search and filter vehicles easily
+### Car Management
+- Create / edit / delete cars
+- VIN-based uniqueness (recommended primary key)
+- Owner-based search & filtering
+- Slug support for clean URLs
 
-### **Measurement Management**
-- Add, update, and delete measurement records
-- View detailed measurement information
-- Historical tracking for every car
+### Measurement Management
+- Create / edit / delete measurement records
+- Link measurements to cars (One-to-Many)
+- Rich details page per measurement
+- Pagination for large lists
 
-### **User Profile Management**
-- Update personal information
-- Change passwords securely
-- Manage associated vehicles and measurements
+### Problem (DTC) Management
+- Manage problems via a dedicated **Problem** model  
+  (`ManyToManyField` from Measurement → Problem)
+- Alternatively parse DTC codes from provided **TXT** files
+- Display **code + description** pairs on detail pages
 
-### **Dashboard & Reporting**
-- Overview of total cars, measurements, and activities
-- Interactive statistics and visualizations
-- Quick access to frequently used actions
+### Data Processing & Visualization
+- **Pandas** for CSV ingestion (e.g., `measurements.csv`, `cars.csv`)
+- **Plotly** for interactive time-series charts (BatteryVoltage, RPM, etc.)
+- Timestamp normalization (ms → seconds) for readable axes
+
+### UI & Templates
+- Bootstrap-based responsive UI
+- Template inheritance (`layout.html`), partials (`_nav.html`, `_messages.html`)
+- Static files pipeline and global includes
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: Blazor WebAssembly (C#)
-- **Backend**: ASP.NET Core Web API
-- **Database**: Microsoft SQL Server
-- **Authentication**: JWT (JSON Web Token)
-- **Styling**: Bootstrap & Custom CSS
-- **Version Control**: Git & GitHub
+- **Framework:** Python **Django**
+- **Frontend:** HTML5, CSS3, JavaScript, **Bootstrap**
+- **Data & Viz:** **Pandas**, **Plotly**
+- **Database:** SQLite (dev) / PostgreSQL / MySQL (configurable)
+- **Auth:** Django Authentication System
+- **VCS:** Git & GitHub
 
 ---
 
 ## 📸 Screenshots
 
-### **1. Home Dashboard**
+### 1) Home Dashboard
 ![Home](screenshots/home.png)
 
-### **2. User Authentication**
-- **Login Page**
+### 2) User Authentication
+- **Login**
 ![Login](screenshots/login.png)
-- **Register Page**
+- **Register**
 ![Register](screenshots/register.png)
 
-### **3. Car Management**
-- Add Car
+### 3) Car Management
+- **Add Car**
 ![Add Car](screenshots/add_car.png)
-- Edit Car
+- **Edit Car**
 ![Edit Car](screenshots/edit_car.png)
-- Delete Car
+- **Delete Car**
 ![Delete Car](screenshots/delete_car.png)
-- Car List
+- **Car List**
 ![Car List](screenshots/car_list.png)
 
-### **4. Measurement Management**
-- Add Measurement
+### 4) Measurement Management
+- **Add Measurement**
 ![Add Measurement](screenshots/add_measurement.png)
-- Edit Measurement
+- **Edit Measurement**
 ![Edit Measurement](screenshots/edit_measurement.png)
-- Delete Measurement
+- **Delete Measurement**
 ![Delete Measurement](screenshots/delete_measurement.png)
-- Measurement List
+- **Measurement List**
 ![Measurement List](screenshots/measurement_list.png)
-- Measurement Detail (1)
+- **Measurement Detail (1)**
 ![Measurement Detail 1](screenshots/measuremnet_detail_1.png)
-- Measurement Detail (2)
+- **Measurement Detail (2)**
 ![Measurement Detail 2](screenshots/measurement_detail_2.png)
-- Measurement Detail (3)
+- **Measurement Detail (3)**
 ![Measurement Detail 3](screenshots/measuremnet_detail_3.png)
 
-### **5. Profile & Security**
-- Change Password
+### 5) Profile & Security
+- **Change Password**
 ![Change Password](screenshots/change_password.png)
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### **Prerequisites**
-- .NET 8 SDK or later
-- Microsoft SQL Server
-- Visual Studio / VS Code
+### Prerequisites
+- Python **3.10+**
+- `pip` (and **virtualenv** recommended)
+- Database (SQLite by default; PostgreSQL/MySQL optional)
 - Git
 
-### **Steps**
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/your-username/autowerkstatt.git
-   cd autowerkstatt
-   ```
-2. **Configure the database**:
-   - Update the **connection string** in `appsettings.json`.
-3. **Apply migrations**:
-   ```bash
-   dotnet ef database update
-   ```
-4. **Run the application**:
-   ```bash
-   dotnet run
-   ```
-5. Open the app in your browser:
-   ```
-   https://localhost:5001
-   ```
+### Steps
+```bash
+# 1) Clone the repository
+git clone https://github.com/your-username/autowerkstatt.git
+cd autowerkstatt
 
----
+# 2) Create and activate virtual environment
+python -m venv venv
+# macOS/Linux
+source venv/bin/activate
+# Windows
+venv\Scripts\activate
 
-## 📌 Future Enhancements
+# 3) Install dependencies
+pip install -r requirements.txt
 
-- Implement multi-language support
-- Add advanced reporting and analytics
-- Integrate notification systems for car maintenance reminders
-- Enhance mobile responsiveness
+# 4) Configure database in settings.py
+# Update DATABASES according to your setup
 
----
+# 5) Apply migrations
+python manage.py makemigrations
+python manage.py migrate
 
-## 🧑‍💻 Author
-**Tuğba Aktürkk**  
-Computer Engineering Student | Junior Software Developer
+# 6) Create superuser
+python manage.py createsuperuser
+
+# 7) Run development server
+python manage.py runserver
+
+# Open the app in your browser:
+# http://127.0.0.1:8000
+
+```
+
+### 📌 Future Enhancements
+# • Multi-language support
+# • Advanced reporting & analytics
+# • Maintenance reminder notifications
+# • Improved mobile responsiveness
+
+### 🧑‍💻 Author
+# Tuğba Aktürk
+# Computer Engineering Student | Junior Software Developer
