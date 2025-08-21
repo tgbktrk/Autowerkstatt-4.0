@@ -140,7 +140,7 @@ python manage.py runserver
 ```
 ---
 
-## 📌 Future Enhancements
+### 📌 **Future Enhancements**
 • **Multi-language support**
 • **Advanced reporting & analytics**
 • **Maintenance reminder notifications**
