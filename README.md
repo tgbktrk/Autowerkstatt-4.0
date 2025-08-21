@@ -47,43 +47,43 @@ Autowerkstatt is a comprehensive car service management system designed to strea
 ## 📸 Screenshots
 
 ### **1. Home Dashboard**
-![Home](home.png)
+![Home](screenshots/home.png)
 
 ### **2. User Authentication**
 - **Login Page**
-![Login](login.png)
+![Login](screenshots/login.png)
 - **Register Page**
-![Register](register.png)
+![Register](screenshots/register.png)
 
 ### **3. Car Management**
 - Add Car
-![Add Car](add_car.png)
+![Add Car](screenshots/add_car.png)
 - Edit Car
-![Edit Car](edit_car.png)
+![Edit Car](screenshots/edit_car.png)
 - Delete Car
-![Delete Car](delete_car.png)
+![Delete Car](screenshots/delete_car.png)
 - Car List
-![Car List](car_list.png)
+![Car List](screenshots/car_list.png)
 
 ### **4. Measurement Management**
 - Add Measurement
-![Add Measurement](add_measurement.png)
+![Add Measurement](screenshots/add_measurement.png)
 - Edit Measurement
-![Edit Measurement](edit_measurement.png)
+![Edit Measurement](screenshots/edit_measurement.png)
 - Delete Measurement
-![Delete Measurement](delete_measurement.png)
+![Delete Measurement](screenshots/delete_measurement.png)
 - Measurement List
-![Measurement List](measurement_list.png)
+![Measurement List](screenshots/measurement_list.png)
 - Measurement Detail (1)
-![Measurement Detail 1](measuremnet_detail_1.png)
+![Measurement Detail 1](screenshots/measuremnet_detail_1.png)
 - Measurement Detail (2)
-![Measurement Detail 2](measurement_detail_2.png)
+![Measurement Detail 2](screenshots/measurement_detail_2.png)
 - Measurement Detail (3)
-![Measurement Detail 3](measuremnet_detail_3.png)
+![Measurement Detail 3](screenshots/measuremnet_detail_3.png)
 
 ### **5. Profile & Security**
 - Change Password
-![Change Password](change_password.png)
+![Change Password](screenshots/change_password.png)
 
 ---
 
