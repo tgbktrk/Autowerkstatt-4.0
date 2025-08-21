@@ -138,13 +138,16 @@ python manage.py runserver
 # http://127.0.0.1:8000
 
 ```
+---
 
-# 📌 Future Enhancements
+## 📌 Future Enhancements
 ### • Multi-language support
 ### • Advanced reporting & analytics
 ### • Maintenance reminder notifications
 ### • Improved mobile responsiveness
 
-# 🧑‍💻 Author
+---
+
+## 🧑‍💻 Author
 ### Tuğba Aktürk
 ### Computer Engineering Student | Junior Software Developer
